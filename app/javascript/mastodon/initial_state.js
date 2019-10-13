@@ -24,6 +24,6 @@ export const useBlurhash = getMeta('use_blurhash');
 export const usePendingItems = getMeta('use_pending_items');
 export const showTrends = getMeta('trends');
 export const title = getMeta('title');
-export const maxTootChars = process.env.MAX_TOOT_CHARS || 500;
+export const maxTootChars = (initialState && initialState.max_toot_chars) || 500;
 
 export default initialState;
