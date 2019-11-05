@@ -73,7 +73,7 @@ class InitialStateSerializer < ActiveModel::Serializer
     { accept_content_types: MediaAttachment.supported_file_extensions + MediaAttachment.supported_mime_types }
   end
 
-  def
+  def max_toot_chars
     StatusLengthValidator::MAX_CHARS
   end
 
