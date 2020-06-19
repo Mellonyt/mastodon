@@ -130,7 +130,7 @@ clean_cache() {
 
 clean_media() {
     tootctl_execute media remove-orphans
-    tootctl_execute remove --days "$MEDIADAYS"
+    tootctl_execute media remove --days "$MEDIADAYS"
 }
 
 backup_database() {
