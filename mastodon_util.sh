@@ -195,7 +195,7 @@ ensure_dirs() {
 
 mastodon_backup() {
     backup_database    || print_exit 1 'Failed backing up database!'
-    backup_livedir     || print_exit 1 'Failed backing up live dir!'
+    backup_live_dir    || print_exit 1 'Failed backing up live dir!'
     create_backup_tar  || print_exit 1 'Failed creating backup tarball!'
     return 0
 }
