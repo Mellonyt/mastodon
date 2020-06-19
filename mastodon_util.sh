@@ -102,7 +102,7 @@ should_do_clean() {
     cur=$(cur_time)
     last=$(last_clean)
     diff=$(($cur - $last))
-    freq=$(backup_clean)
+    freq=$(clean_freq)
 
     if [ $diff -gt $freq ]; then
         touch "$LASTCLEAN"
