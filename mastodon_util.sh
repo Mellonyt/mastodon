@@ -158,10 +158,15 @@ backup_live_dir() {
 }
 
 create_backup_tar() {
-    local result
+    local result backup="${ARCHIVDIR}/backup.tar.gz"
 
-    echo "Creating gzipped tarball ${ARCHIVDIR}/backup.tar.gz from backup dir ${BACKUPDIR}..."
-    tar --numeric-owner -zxcf "${ARCHIVDIR}/backup.tar.gz" "${BACKUPDIR}"
+    if [ -f "$backup" ]; then
+        echo "Removing old backup tarball..."
+        rm -f "$backup" || return 1
+    fi
+
+    echo "Creating gzipped tarball ${backup} from backup dir ${BACKUPDIR}..."
+    tar --numeric-owner -zxcf "$backup" "${BACKUPDIR}"
     result=$?
 
     print_if_success $result
