@@ -28,6 +28,7 @@ fi
 # Ensure rbenv setup
 (type 'rbenv' | grep 'function') > /dev/null 2>&1 || eval "$(rbenv init -)"
 
+# Execute tootctl properly
 _tootctl() {
     (cd "$_MASTODONDIR" > /dev/null 2>&1 && RAILS_ENV=production bundle exec bin/tootctl $@)
 }
