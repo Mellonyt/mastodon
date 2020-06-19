@@ -25,10 +25,12 @@ print_exit() {
 
 set_output() {
     if [ ! -z "$1" ]; then
-        if [ ! -w "$1" ]; then
-            print_exit 1 "No write access for log file: ${1}"
+        if [ -f "$1" ]; then
+            # Remove old
+            rm -f "$1" || print_exit 1 "Failed deleting old log file: ${1}"
         fi
 
+        touch "$1" || print_exit 1 "Failed creating log file: ${1}"
         echo "Outputting to: ${1}"
 
         # Close stdout
