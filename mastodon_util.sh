@@ -181,7 +181,7 @@ cleanup_backupdir() {
     return $result
 }
 
-ensure_backup_dirs() {
+ensure_dirs() {
     mkdir -p "$ARCHIVDIR" || return 1
     mkdir -p "$BACKUPDIR" || return 1
 }
